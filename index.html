@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="id"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mathematics Of Champion</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--c:#35e6ff;--g:#ffd54a;--l:rgba(154,216,255,.2);--purple:#35e6ff;--purple-light:#7df0ff;--purple-dark:#9ad8ff;--purple-soft:rgba(53,230,255,.1);--border:rgba(154,216,255,.2);--text-muted:#c5d4ea;--bg-alt:rgba(255,255,255,.05);--transition:all .2s}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;font-family:"DM Sans",sans-serif;color:#f6fbff;background:linear-gradient(120deg,#061126,#0b214b 55%,#090d31) fixed;min-height:100vh}
+.w{max-width:1150px;margin:auto;padding:14px}
+.p{background:rgba(17,34,69,.75);border:1px solid var(--l);border-radius:18px;padding:18px}
+header{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+h1,h2,h3{margin:.2em 0}h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:10px 14px;cursor:pointer;background:rgba(255,255,255,.12);color:#fff}
+button.pr{background:var(--c);color:#04101f}button:disabled{opacity:.5}
+input,select,textarea{font:inherit;width:100%;padding:9px;border-radius:9px;border:1px solid #4b5f80;background:#0b1530;color:#fff}
+label{font-size:.8rem;color:#c5d4ea;display:block;margin:8px 0 3px}
+.hide{display:none!important}.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.home{display:grid;grid-template-columns:1.3fr .7fr;gap:16px;margin-top:14px}
+.lay{display:grid;grid-template-columns:1fr 280px;gap:14px;margin-top:14px}
+@media(max-width:800px){.home,.lay{grid-template-columns:1fr}}
+.board{display:grid;grid-template-columns:repeat(10,1fr);gap:5px}
+.t{aspect-ratio:1;position:relative;border-radius:8px;border:1px solid rgba(150,223,255,.3);background:#1b3158;font-family:"Space Mono",monospace;font-size:clamp(.6rem,1.6vw,1rem);padding:0}
+.t:not(:disabled):hover{border-color:var(--c);transform:scale(1.05)}
+.t i{position:absolute;top:4px;right:4px;width:6px;height:6px;border-radius:9px;background:#60f5a4}
+.t.Medium i{background:#ffd54a}.t.Hard i{background:#ff587d}.t:disabled{opacity:1;border-color:#fff}
+.bar{height:10px;border-radius:9px;background:#050c1c;overflow:hidden;margin-top:10px}.bar div{height:100%;background:var(--c);transition:width .4s}
+.mono{font-family:"Space Mono",monospace}
+.mo{position:fixed;inset:0;background:rgba(2,8,24,.78);display:flex;align-items:center;justify-content:center;padding:14px;z-index:9}
+.mo>.p{max-width:520px;width:100%;max-height:85vh;overflow:auto;background:#10213f}
+.ch{display:block;border:1px solid var(--l);border-radius:10px;padding:10px;margin:8px 0;background:#0b1530;cursor:pointer}
+.ch input{width:auto;margin-right:8px}
+.st{display:grid;grid-template-columns:1fr auto;gap:8px;border-bottom:1px solid var(--l);padding:8px 0;align-items:center}
+.st span.o{display:flex;gap:10px}.st span.o label{margin:0;color:#fff;font-size:.9rem}.st input{width:auto}
+.tc{color:#fff;min-height:48px}
+table{width:100%;border-collapse:collapse}td,th{padding:9px;text-align:left;border-bottom:1px solid var(--l)}
+.ok{color:#6ef0b0}.bad{color:#ff7d9a}.tag{font-size:.75rem;letter-spacing:.2em;color:var(--c);font-weight:800}
+#cf i{position:fixed;top:-20px;width:9px;height:15px;animation:f 2.6s linear forwards;z-index:99}
+@keyframes f{to{transform:translateY(105vh) rotate(700deg)}}
+.er{display:flex;gap:8px;align-items:center;margin:6px 0}.er input[type=radio],.er input[type=checkbox]{width:auto}.eb{display:flex;align-items:center;gap:4px;margin:0!important;color:#fff!important;white-space:nowrap}.pv{display:none}.pv.show{display:block;position:fixed;inset:0;background:#fff;overflow:auto;z-index:99;padding:14px}.bar2{position:sticky;top:0;background:#07152f;color:#fff;padding:10px;border-radius:10px;margin-bottom:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;font:14px Arial}.pc{border:1.5px solid #183b6b;border-radius:10px;padding:10px;break-inside:avoid;color:#07152f;background:#fff;font:12px/1.45 Arial,sans-serif}
+.pc h4{margin:0 0 6px;font-size:11px;color:#183b6b;display:flex;justify-content:space-between;border-bottom:1px solid #c8d6e8;padding-bottom:5px}
+.pc ol{margin:6px 0;padding-left:20px;list-style:none}.pc .ln{border-top:1px dashed #9aafc9;margin-top:8px;padding-top:6px}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.modul-content h3{font-family:'Outfit',sans-serif;font-size:1.4rem;color:var(--purple-dark);margin-top:2rem;margin-bottom:1rem}
+.modul-content h4{font-family:'Outfit',sans-serif;font-size:1.2rem;color:var(--purple);margin-top:1.5rem;margin-bottom:0.8rem}
+.modul-content p{color:var(--text-muted);line-height:1.8;margin-bottom:1rem}
+.modul-content ul, .modul-content ol{color:var(--text-muted);line-height:1.8;margin-left:1.5rem;margin-bottom:1rem}
+.modul-content li{margin-bottom:0.5rem}
+.formula{background:var(--purple-soft);padding:1.5rem;border-radius:10px;text-align:center;font-family:'Space Mono',monospace;font-size:1.3rem;color:var(--purple-dark);margin:1rem 0;border:1px solid var(--border)}
+.example{background:linear-gradient(135deg,hsl(224,42%,18%) 0%,hsl(224,30%,22%) 100%);border-left:4px solid var(--purple);padding:1.2rem;border-radius:0 10px 10px 0;margin:1rem 0}
+.example p{margin-bottom:0.5rem;color:#f6fbff}
+.example strong{color:var(--purple-light)}
+.example.interactive{transition:var(--transition)}
+.example.interactive:hover{transform:translateX(4px);box-shadow:0 4px 20px hsl(258,60%,62%,0.12)}
+.eq{font-family:'Space Mono',monospace;font-size:1.1rem;background:hsl(224,30%,25%);padding:1rem;border-radius:8px;border:1px solid var(--purple);margin-bottom:1rem;color:#f6fbff}
+.btn-reveal{background:var(--purple);color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-weight:600;transition:var(--transition);margin-bottom:1rem}
+.btn-reveal:hover{background:var(--purple-light);transform:scale(1.05)}
+.solution{background:hsl(224,30%,25%);padding:1rem;border-radius:8px;border:1px solid var(--purple);margin-top:1rem}
+.solution.hide{display:none}
+.solution.show{display:block;animation:fadeIn 0.3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+.solution p{margin-bottom:0.8rem;color:#f6fbff}
+.result{background:linear-gradient(135deg,var(--purple) 0%,var(--purple-light) 100%);color:#fff;padding:0.8rem;border-radius:8px;text-align:center;margin-top:1rem}
+.latihan{background:var(--bg-alt);padding:1.2rem;border-radius:10px;border:1px solid var(--border);margin:1rem 0}
+.latihan p{margin-bottom:0.8rem}
+@media print{@page{size:A4;margin:10mm}body{background:#fff!important}body>*:not(#pv){display:none!important}#pv{display:block!important;position:static!important;overflow:visible!important;padding:0!important}.nop{display:none!important}}
+</style></head><body>
+<div class="w">
+<header class="p"><b class="mono" style="cursor:pointer" onclick="V('home')">🏆 MATHEMATICS OF CHAMPION</b>
+<nav><button onclick="V('home')">Beranda</button> <button onclick="V('how')">Cara Main</button> <button onclick="V('modul')">Modul Ajar</button> <button onclick="V('board')">Papan</button> <button onclick="V('lb')">Skor</button> <button onclick="askPin()">Teacher</button></nav></header>
+<div id="note" class="tag" style="margin:8px 4px"></div>
+
+<section id="v-home"><div class="home">
+<div class="p"><div class="tag">BANGUN RUANG • KELAS VIII</div><h1 style="margin-top:12px">MATHEMATICS<br>OF CHAMPION</h1>
+<p style="font-size:1.15rem;color:#d3e0f3">Jawab tantangan bangun ruang, rebut kotak, dan jadilah tim juara!</p>
+<button class="pr" onclick="V('board')">MULAI GAME</button> <button onclick="V('how')">CARA MAIN</button></div>
+<div class="p" style="text-align:center"><div style="font-size:4rem">👑</div><div class="tag">KOTAK DIREBUT</div><div class="mono" style="font-size:2.6rem" id="hp">0 / 50</div><div class="bar"><div id="hb"></div></div></div></div>
+<div class="p" style="margin-top:14px"><h3 style="margin-bottom:12px">KELOMPOK TIM</h3><div id="teamColors" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px"></div></div></section>
+
+<section id="v-how" class="hide"><div class="p" style="margin-top:14px"><div class="tag">CARA MAIN</div><h2>3 langkah menuju juara</h2>
+<p><b>① Pilih kotak.</b> Hijau = Easy (pilihan ganda), kuning = Medium (isian angka), merah = Hard (benar/salah 4 pernyataan).</p>
+<p><b>② Jawab sebelum waktu habis.</b> Jawaban benar memberi poin sesuai tingkat kesulitan.</p>
+<p><b>③ Rebut kotak.</b> Guru memilih tim pemenang. Menang 2× beruntun bonus +50, 3× atau lebih bonus +100.</p>
+<button class="pr" onclick="V('board')">MAIN SEKARANG</button></div></section>
+
+<section id="v-modul" class="hide"><div class="p" style="margin-top:14px;max-width:900px"><div class="tag">MODUL AJAR</div><h2>BANGUN RUANG: KLASIFIKASI, JARING-JARING, DAN LUAS PERMUKAAN</h2>
+<div class="modul-content">
+<h3>🎯 Tujuan Pembelajaran</h3>
+<ul><li>Mengklasifikasikan bangun ruang berdasarkan sifat-sifatnya</li><li>Mengenali jaring-jaring bangun ruang</li><li>Menghitung luas permukaan bangun ruang</li></ul>
+
+<h3>🧊 1. Klasifikasi Bangun Ruang</h3>
+<p>Bangun ruang dibagi dua: <b>sisi datar</b> (kubus, balok, prisma, limas) dan <b>sisi lengkung</b> (tabung, kerucut, bola).</p>
+<div style="overflow-x:auto"><table><thead><tr><th>Bangun</th><th>Sisi</th><th>Rusuk</th><th>Titik Sudut</th></tr></thead><tbody>
+<tr><td>Kubus</td><td>6</td><td>12</td><td>8</td></tr><tr><td>Balok</td><td>6</td><td>12</td><td>8</td></tr>
+<tr><td>Prisma segitiga</td><td>5</td><td>9</td><td>6</td></tr><tr><td>Limas segiempat</td><td>5</td><td>8</td><td>5</td></tr></tbody></table></div>
+<div class="formula" style="font-size:1rem">Prisma segi-n: n+2 sisi, 3n rusuk, 2n titik sudut<br>Limas segi-n: n+1 sisi, 2n rusuk, n+1 titik sudut</div>
+
+<h3>📦 2. Jaring-jaring</h3>
+<p>Jaring-jaring adalah rangkaian bidang datar yang diperoleh dengan membuka (menggunting) rusuk bangun ruang.</p>
+<ul><li><b>Kubus:</b> 6 persegi kongruen (ada 11 bentuk jaring-jaring berbeda)</li><li><b>Balok:</b> 3 pasang persegi panjang</li><li><b>Prisma segitiga:</b> 2 segitiga + 3 persegi panjang</li><li><b>Limas segiempat:</b> 1 segiempat + 4 segitiga</li><li><b>Tabung:</b> 2 lingkaran + 1 persegi panjang (selimut)</li><li><b>Kerucut:</b> 1 lingkaran + 1 juring lingkaran (selimut)</li></ul>
+
+<h3>📐 3. Luas Permukaan</h3>
+<p>Luas permukaan = jumlah luas seluruh jaring-jaringnya.</p>
+<div class="formula" style="font-size:1.05rem">Kubus = 6s² &nbsp;|&nbsp; Balok = 2(pl + pt + lt)<br>Prisma = 2 × L.alas + K.alas × t<br>Limas = L.alas + jumlah L.sisi tegak<br>Tabung = 2πr(r + t) &nbsp;|&nbsp; Kerucut = πr(r + s) &nbsp;|&nbsp; Bola = 4πr²</div>
+
+<div class="example interactive"><p><strong>Contoh 1:</strong> Balok berukuran 12 cm × 5 cm × 4 cm. Hitung luas permukaannya.</p>
+<button class="btn-reveal" onclick="toggleSolution(this)">Lihat Solusi</button>
+<div class="solution hide"><p>L = 2(pl + pt + lt) = 2(60 + 48 + 20) = 2 × 128</p><p class="result"><strong>Luas permukaan = 256 cm²</strong></p></div></div>
+
+<div class="example interactive"><p><strong>Contoh 2:</strong> Limas persegi dengan sisi alas 6 cm dan tinggi sisi tegak 8 cm. Hitung luas permukaannya.</p>
+<button class="btn-reveal" onclick="toggleSolution(this)">Lihat Solusi</button>
+<div class="solution hide"><p>Luas alas = 6 × 6 = 36 cm²</p><p>Luas 1 sisi tegak = ½ × 6 × 8 = 24 cm², ada 4 sisi → 96 cm²</p><p class="result"><strong>Luas permukaan = 36 + 96 = 132 cm²</strong></p></div></div>
+
+<div class="example interactive"><p><strong>Contoh 3:</strong> Tabung dengan r = 14 cm dan t = 6 cm (π = 22/7). Hitung luas permukaannya.</p>
+<button class="btn-reveal" onclick="toggleSolution(this)">Lihat Solusi</button>
+<div class="solution hide"><p>2πr = 2 × 22/7 × 14 = 88</p><p>L = 88 × (14 + 6) = 88 × 20</p><p class="result"><strong>Luas permukaan = 1.760 cm²</strong></p></div></div>
+
+<h3>💡 Tips</h3>
+<ul><li>Gambar jaring-jaringnya dahulu agar tidak ada sisi yang terlewat</li><li>Periksa soal: tabung/balok tanpa tutup berarti satu bidang dikurangi</li><li>Gunakan tinggi sisi tegak (bukan tinggi limas) untuk luas segitiga sisi tegak</li></ul>
+
+<h3>📝 Latihan Soal</h3>
+<div class="latihan"><p>1. Hitung luas permukaan kubus dengan rusuk 7 cm.</p><p>2. Sebutkan banyak sisi, rusuk, dan titik sudut prisma segilima.</p><p>3. Hitung luas permukaan tabung tanpa tutup dengan r = 7 cm dan t = 10 cm (π = 22/7).</p></div>
+
+<button class="pr" onclick="V('board')">LATIHAN DI GAME</button></div></div></section>
+
+<section id="v-board" class="hide"><div class="lay"><div>
+<div class="p" style="display:flex;justify-content:space-between"><h2>PAPAN TANTANGAN</h2><div><span class="tag">COMBO</span> <b class="mono" id="cb" style="color:var(--g)">x1</b></div></div>
+<div class="p" style="margin-top:12px"><div class="board" id="bd"></div></div></div>
+<aside><div class="p"><b>Progres</b> <span class="mono" id="pc" style="float:right;color:var(--c)"></span><div class="bar"><div id="pb"></div></div></div>
+<div class="p" style="margin-top:12px"><b>Top 5</b><div id="mini"></div></div></aside></div></section>
+
+<section id="v-lb" class="hide"><div class="p" style="margin-top:14px"><h2>PAPAN SKOR</h2><div style="overflow-x:auto"><table><thead><tr><th>#</th><th>Tim</th><th>Poin</th><th>Kotak</th></tr></thead><tbody id="full"></tbody></table></div></div></section>
+
+<section id="v-teacher" class="hide"><div class="p" style="margin-top:14px">
+<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><h2>TEACHER MODE</h2><p id="dbs" class="tag" style="margin:0"></p><div><button class="pr" onclick="saveAll()">SIMPAN SEMUA KE DATABASE</button> <button onclick="exportData()">EXPORT DATA</button> <button onclick="document.getElementById('importFile').click()">IMPORT DATA</button><input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(this)"> <button onclick="doPrint(0)">CETAK SOAL</button> <button onclick="doPrint(1)">CETAK KUNCI</button> <button onclick="doDl()">UNDUH HTML</button> <button onclick="endGame()">AKHIRI GAME</button> <button onclick="resetGame()">RESET GAME</button></div></div>
+<div class="g2" style="margin-top:12px;align-items:start">
+<form id="fs" class="p"><h3>Pengaturan</h3><div class="g2"><div><label>Timer (detik)</label><input id="s-t" type="number" min="10" max="300"></div><div><label>Poin Easy</label><input id="s-E" type="number"></div><div><label>Poin Medium</label><input id="s-M" type="number"></div><div><label>Poin Hard</label><input id="s-H" type="number"></div></div><button class="pr" style="margin-top:12px">SIMPAN</button></form>
+<form id="fq" class="p"><h3>Editor Soal</h3><label>Pilih soal</label><select id="qs"></select><div id="qk" class="tag" style="margin-top:8px"></div>
+<label>Teks soal</label><textarea id="qt" rows="4"></textarea>
+<label>Gambar (opsional)</label><input type="file" id="qimg" accept="image/*" style="margin-bottom:8px">
+<div id="imgPreview" style="margin-bottom:12px"></div>
+<div id="ed-pg"></div><div id="ed-st"></div>
+<div id="ed-xy" class="g2"><div><label>Jawaban (angka)</label><input id="qx" type="text"></div><input id="qy" type="hidden" value="0"></div>
+<button class="pr" style="margin-top:12px">SIMPAN SOAL</button></form></div>
+<div class="p" style="margin-top:12px"><h3>Tim</h3><div id="te" class="g2"></div></div>
+<p id="tm" class="tag"></p></div></section>
+
+<section id="v-final" class="hide"><div class="p" style="text-align:center;margin-top:14px"><div style="font-size:4rem">🏆</div><div class="tag">JUARA</div>
+<h1 id="cn"></h1><p class="mono" id="cs"></p><div id="pod" class="g2" style="margin-top:16px"></div>
+<button class="pr" style="margin-top:16px" onclick="resetGame();V('board')">MAIN LAGI</button></div></section>
+</div>
+
+<div id="mpin" class="mo hide"><form class="p" id="fp"><h3>TEACHER MODE</h3><label>Sandi</label><input id="pin" type="password" inputmode="numeric" maxlength="4"><p id="pm" class="bad"></p><button type="button" onclick="H('mpin')">BATAL</button> <button class="pr">BUKA</button></form></div>
+<div id="mq" class="mo hide"><form class="p" id="fa"><div style="display:flex;justify-content:space-between"><div><div id="ql2" class="tag"></div><h3 id="qh2"></h3></div><b class="mono" id="tm2" style="color:var(--g);font-size:1.6rem"></b></div>
+<p id="qp" style="white-space:pre-line;font-size:1.1rem"></p><div id="qa"></div><button type="button" onclick="closeQ()">KELUAR</button> <button class="pr">KIRIM JAWABAN</button></form></div>
+<div id="mr" class="mo hide"><div class="p" style="text-align:center"><div id="ri" style="font-size:3rem"></div><h2 id="rt"></h2><p class="mono" id="rp" style="color:var(--g)"></p><p id="rx" style="color:#c5d4ea"></p><button class="pr" id="rb">LANJUT</button></div></div>
+<div id="mt" class="mo hide"><div class="p"><div class="tag">TIM PEMENANG</div><h3>Pilih tim yang menguasai kotak</h3><div id="tch" class="g2"></div></div></div>
+<div id="cf"></div><div id="pv" class="pv"></div>
+
+<script>
+const LV={E:"Easy",M:"Medium",H:"Hard"};
+const VERSION="v18-bangun-ruang";
+const u=undefined,e=(t,a,b,c,d)=>["E",t,0,0,0,a,b,c,d],m=(t,x)=>["M",t,x,0],h=(t,s)=>["H",t,0,0,u,u,u,u,u,s];
+const RAW=[
+e("Manakah yang termasuk bangun ruang sisi lengkung?","Tabung","Kubus","Prisma segitiga","Limas segiempat"),
+e("Banyak sisi, rusuk, dan titik sudut balok berturut-turut adalah...","6, 12, 8","6, 8, 12","8, 12, 6","4, 12, 8"),
+e("Bangun ruang yang memiliki 5 sisi, 8 rusuk, dan 5 titik sudut adalah...","Limas segiempat","Prisma segitiga","Kerucut","Balok"),
+e("Jaring-jaring kubus terdiri atas ... persegi yang kongruen.","6","4","8","12"),
+e("Jaring-jaring tabung terdiri atas...","2 lingkaran dan 1 persegi panjang","1 lingkaran dan 1 persegi panjang","2 lingkaran dan 1 juring","1 lingkaran dan 1 juring"),
+e("Jaring-jaring kerucut terdiri atas...","1 lingkaran dan 1 juring lingkaran","2 lingkaran dan 1 juring","1 lingkaran dan 1 persegi panjang","1 lingkaran dan 1 segitiga"),
+e("Rumus luas permukaan kubus dengan panjang rusuk s adalah...","6s²","4s²","s³","12s"),
+e("Luas permukaan kubus dengan rusuk 5 cm adalah ... cm²","150","125","100","30"),
+m("Hitung luas permukaan kubus dengan panjang rusuk 9 cm. (jawab dalam cm²)",6*81),
+m("Hitung luas permukaan balok berukuran 10 cm × 6 cm × 5 cm. (cm²)",2*(60+50+30)),
+m("Alas prisma berbentuk segitiga siku-siku dengan sisi 6 cm, 8 cm, dan 10 cm. Tinggi prisma 12 cm. Hitung luas permukaannya. (cm²)",2*24+24*12),
+m("Limas persegi memiliki sisi alas 10 cm dan tinggi sisi tegak 13 cm. Hitung luas permukaannya. (cm²)",100+4*65),
+m("Tabung berjari-jari 7 cm dan tinggi 10 cm. Hitung luas permukaannya. (π = 22/7, cm²)",44*17),
+m("Kerucut berjari-jari 7 cm dan garis pelukis 25 cm. Hitung luas permukaannya. (π = 22/7, cm²)",22*32),
+m("Bola berjari-jari 14 cm. Hitung luas permukaannya. (π = 22/7, cm²)",4*22*28),
+m("Luas permukaan sebuah kubus 216 cm². Berapa panjang rusuknya? (cm)",6),
+m("Balok memiliki panjang 8 cm, lebar 5 cm, dan luas permukaan 236 cm². Berapa tinggi balok? (cm)",6),
+h("Tentukan benar atau salah pernyataan tentang kubus berikut.",[["Kubus memiliki 12 rusuk",1],["Setiap sisi kubus berbentuk persegi",1],["Kubus memiliki 6 diagonal ruang",0],["Kubus memiliki 12 diagonal sisi",1]]),
+h("Tentukan benar atau salah pernyataan tentang balok berikut.",[["Balok memiliki 3 pasang sisi berhadapan yang kongruen",1],["Balok memiliki 8 rusuk",0],["Kubus merupakan balok khusus",1],["Semua sisi balok pasti berbentuk persegi",0]]),
+h("Tentukan benar atau salah pernyataan tentang klasifikasi bangun ruang berikut.",[["Tabung termasuk bangun ruang sisi lengkung",1],["Limas memiliki sisi lengkung",0],["Prisma termasuk bangun ruang sisi datar",1],["Kerucut dan tabung sama-sama memiliki 2 lingkaran sebagai alas",0]]),
+h("Tentukan benar atau salah pernyataan tentang prisma segilima berikut.",[["Prisma segilima memiliki 7 sisi",1],["Prisma segilima memiliki 15 rusuk",1],["Prisma segilima memiliki 10 titik sudut",1],["Prisma segilima memiliki 6 sisi tegak",0]]),
+h("Tentukan benar atau salah pernyataan tentang limas segitiga berikut.",[["Limas segitiga memiliki 5 titik sudut",0],["Limas segitiga memiliki 4 sisi",1],["Limas segitiga memiliki 6 rusuk",1],["Semua sisi limas segitiga berbentuk segitiga",1]]),
+h("Tentukan benar atau salah pernyataan tentang jaring-jaring berikut.",[["Jaring-jaring prisma segitiga terdiri atas 2 segitiga dan 3 persegi panjang",1],["Jaring-jaring tabung terdiri atas 3 lingkaran",0],["Jaring-jaring limas segiempat terdiri atas 1 segiempat dan 4 segitiga",1],["Jaring-jaring balok terdiri atas 6 persegi/persegi panjang",1]]),
+h("Tentukan benar atau salah pernyataan tentang luas permukaan berikut. (π = 22/7)",[["Luas permukaan kubus rusuk 4 cm adalah 96 cm²",1],["Luas permukaan balok 5 × 4 × 3 cm adalah 60 cm²",0],["Luas permukaan bola berjari-jari 7 cm adalah 616 cm²",1],["Luas alas tabung berjari-jari 7 cm adalah 308 cm²",0]]),
+h("Tentukan benar atau salah pernyataan tentang luas permukaan berikut.",[["Jika rusuk kubus diperbesar 2 kali, luas permukaannya menjadi 2 kali semula",0],["Jika rusuk kubus diperbesar 2 kali, luas permukaannya menjadi 4 kali semula",1],["Luas permukaan tabung tanpa tutup = 2πr(r + t)",0],["Luas permukaan limas = luas alas + jumlah luas sisi tegak",1]]),
+e("Prisma yang alasnya segi enam memiliki ... sisi.","8","6","7","12"),
+e("Limas dengan alas segi enam memiliki ... rusuk.","12","7","6","18"),
+e("Luas permukaan balok berukuran 6 cm × 4 cm × 3 cm adalah ... cm²","108","72","144","54"),
+e("Rumus luas selimut tabung dengan jari-jari r dan tinggi t adalah...","2πrt","πr²t","πrt","2πr²"),
+e("Rumus luas permukaan bola dengan jari-jari r adalah...","4πr²","2πr²","πr²","4/3 πr³"),
+e("Kerucut berjari-jari r dan garis pelukis s memiliki luas selimut...","πrs","2πrs","πr²s","πr²"),
+e("Kotak berbentuk balok tanpa tutup. Luas bahan yang dibutuhkan adalah...","2(pl + pt + lt) − pl","2(pl + pt + lt)","pl + pt + lt","2pl + pt + lt"),
+e("Banyak bentuk jaring-jaring kubus yang berbeda adalah...","11","6","8","12"),
+m("Hitung luas permukaan kubus dengan rusuk 12 cm. (cm²)",6*144),
+m("Hitung luas permukaan balok berukuran 15 cm × 8 cm × 4 cm. (cm²)",2*(120+60+32)),
+m("Alas prisma berbentuk segitiga siku-siku dengan sisi 5 cm, 12 cm, dan 13 cm. Tinggi prisma 10 cm. Hitung luas permukaannya. (cm²)",2*30+30*10),
+m("Limas persegi memiliki sisi alas 6 cm dan tinggi sisi tegak 5 cm. Hitung luas permukaannya. (cm²)",36+4*15),
+m("Tabung tanpa tutup berjari-jari 7 cm dan tinggi 20 cm. Hitung luas permukaannya. (π = 22/7, cm²)",154+880),
+m("Kerucut berjari-jari 7 cm dan garis pelukis 10 cm. Hitung luas selimutnya. (π = 22/7, cm²)",22*10),
+m("Luas permukaan sebuah bola 616 cm². Berapa jari-jarinya? (π = 22/7, cm)",7),
+m("Kerucut berjari-jari 7 cm dan tinggi 24 cm. Hitung luas selimutnya. (π = 22/7, cm²)",22*25),
+m("Akuarium kaca berbentuk balok tanpa tutup berukuran 80 cm × 40 cm × 50 cm. Hitung luas kaca yang dibutuhkan. (cm²)",3200+8000+4000),
+h("Pilih bangun ruang yang memiliki sisi lengkung.",[["Tabung",1],["Kerucut",1],["Bola",1],["Limas segiempat",0]]),
+h("Pilih bangun ruang yang memiliki 12 rusuk.",[["Kubus",1],["Balok",1],["Limas segienam",1],["Prisma segitiga",0]]),
+h("Pilih pernyataan yang benar tentang jaring-jaring.",[["Satu bangun ruang dapat memiliki lebih dari satu bentuk jaring-jaring",1],["Selimut tabung pada jaring-jaringnya berbentuk persegi panjang",1],["Jaring-jaring limas segitiga terdiri atas 4 segitiga",1],["Jaring-jaring kerucut memiliki 2 lingkaran",0]]),
+h("Pilih pernyataan luas permukaan yang benar. (π = 22/7)",[["Kubus rusuk 5 cm: 150 cm²",1],["Kubus rusuk 6 cm: 196 cm²",0],["Balok 3 × 4 × 5 cm: 94 cm²",1],["Tabung r = 7 cm, t = 3 cm: 400 cm²",0]]),
+h("Limas persegi memiliki sisi alas 8 cm dan tinggi sisi tegak 5 cm. Pilih pernyataan yang benar.",[["Luas alas 64 cm²",1],["Luas satu sisi tegak 40 cm²",0],["Luas seluruh sisi tegak 80 cm²",1],["Luas permukaan 144 cm²",1]]),
+h("Prisma tegak dengan alas segitiga siku-siku 3 cm, 4 cm, 5 cm dan tinggi 10 cm. Pilih pernyataan yang benar.",[["Luas alas 6 cm²",1],["Keliling alas 12 cm",1],["Luas seluruh sisi tegak 120 cm²",1],["Luas permukaan 126 cm²",0]]),
+h("Pilih pernyataan yang benar. (π = 22/7)",[["Luas permukaan bola r = 7 cm adalah 616 cm²",1],["Luas selimut tabung r = 7 cm, t = 10 cm adalah 440 cm²",1],["Luas alas tabung r = 7 cm adalah 308 cm²",0],["Luas selimut kerucut r = 7 cm, s = 25 cm adalah 550 cm²",1]]),
+h("Luas permukaan sebuah kubus 384 cm². Pilih pernyataan yang benar.",[["Luas satu sisinya 64 cm²",1],["Panjang rusuknya 8 cm",1],["Jika rusuk digandakan, luas permukaan menjadi 768 cm²",0],["Jumlah panjang seluruh rusuknya 96 cm",1]])];
+const Q=RAW.map(([l,t,x,y,c,o1,o2,o3,o4,s])=>({level:LV[l],prompt:t,x,y,st:s?JSON.stringify(s.map(([t,b])=>({t,b:!!b}))):"",ch:o1!==undefined?JSON.stringify({o:[o1,o2,o3,o4],c:c}):"",img:""}));
+const COL=["#ef476f","#3287ff","#20bd82","#e5b731","#9b65ec","#f58b36","#ec5eb5","#21c7d5"],NM=["RED","BLUE","GREEN","YELLOW","PURPLE","ORANGE","PINK","CYAN"];
+const fresh=()=>({teams:NM.map((n,i)=>({name:n,color:COL[i],points:0,captured:0,combo:0})),cap:Array(50).fill(null),set:{timer:60,Easy:100,Medium:150,Hard:200}});
+let S=fresh(),db=null,act=null,rem=0,tid=null,pts=0,opts=[],localDB=false;
+function loadState(){
+  try{
+    const saved=localStorage.getItem("moc_state");
+    if(saved){
+      const data=JSON.parse(saved);
+      if(data.version===VERSION){
+        S=data.state;
+        localDB=true;
+        $("note").textContent="Data tersimpan dimuat.";
+      }else{
+        localStorage.removeItem("moc_state");
+        $("note").textContent="Versi berbeda, data di-reset.";
+      }
+    }
+  }catch(e){localStorage.removeItem("moc_state")}
+}
+const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt=n=>Number.isInteger(n)?String(n):String(+n.toFixed(2)).replace(".",",");
+const num=s=>{s=String(s).trim().replace(",",".");if(s.includes("/")){const[a,b]=s.split("/");return +a/+b}return +s};
+const H=id=>$(id).classList.add("hide"),Sh=id=>$(id).classList.remove("hide");
+function V(n){["home","how","modul","board","lb","teacher","final"].forEach(v=>H("v-"+v));Sh("v-"+n);if(n=="lb")render();if(n=="teacher")renderT()}
+function save(){
+  if(db){db.doc("game/state").set({json:JSON.stringify(S)}).catch(()=>$("note").textContent="Gagal menyimpan ke database.")}
+  else if(localDB){try{localStorage.setItem("moc_state",JSON.stringify({version:VERSION,state:S}))}catch(e){$("note").textContent="Gagal menyimpan ke localStorage."}}
+}
+function sorted(){return[...S.teams].sort((a,b)=>b.points-a.points||b.captured-a.captured||a.name.localeCompare(b.name))}
+function render(){
+ const bd=$("bd");bd.innerHTML="";
+ Q.forEach((q,i)=>{const o=S.cap[i],b=document.createElement("button");b.type="button";b.className="t "+q.level;b.disabled=o!==null;b.innerHTML=`<i></i>${String(i+1).padStart(2,"0")}`+(o!==null?" ✓":"");if(o!==null)b.style.background=S.teams[o].color;else b.onclick=()=>openQ(i);bd.appendChild(b)});
+ const n=S.cap.filter(x=>x!==null).length;$("hp").textContent=$("pc").textContent=n+" / 50";$("hb").style.width=$("pb").style.width=n*2+"%";
+ $("cb").textContent="x"+Math.max(1,...S.teams.map(t=>t.combo));
+ const r=sorted(),md=["🥇","🥈","🥉"];
+ $("mini").innerHTML=r.slice(0,5).map((t,i)=>`<div style="display:flex;justify-content:space-between;padding:6px 0"><span>${md[i]||i+1} <b>${esc(t.name)}</b></span><b class="mono" style="color:${t.color}">${t.points}</b></div>`).join("");
+ $("full").innerHTML=r.map((t,i)=>`<tr><td>${md[i]||i+1}</td><td><b style="color:${t.color}">● ${esc(t.name)}</b></td><td class="mono">${t.points}</td><td>${t.captured}</td></tr>`).join("");
+ const tc=$("teamColors");if(tc)tc.innerHTML=S.teams.map(t=>`<div style="background:${t.color};padding:12px;border-radius:10px;text-align:center;color:#fff;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,0.3)">${esc(t.name)}</div>`).join("");
+}
+const cx=i=>i>=42&&Q[i].level=="Hard";
+function stmts(i){const q=Q[i];
+ if(q.st){try{return JSON.parse(q.st)}catch(e){}}
+ const T=[[1,0,1,0],[0,1,0,1],[1,1,0,0],[0,0,1,1]][i%4],it=[["x",q.x],["y",q.y],["x + y",q.x+q.y],["x − y",q.x-q.y]];
+ return it.map(([l,v],n)=>({t:`${l} = ${fmt(v+(T[n]?0:1))}`,b:!!T[n]}))}
+function cIdx(i){try{const c=JSON.parse(Q[i].ch);return +c.c||0}catch(e){return 0}}
+function choices(i){const q=Q[i];try{const c=JSON.parse(q.ch);if(c&&c.o&&c.o.length==4)return c.o.map((t,k)=>({k,txt:t}))}catch(e){}
+ return[[q.x,q.y],[q.x+1,q.y],[q.x,q.y+1],[q.x-1,q.y-1]].map((p,k)=>({k,txt:`x = ${fmt(p[0])}, y = ${fmt(p[1])}`}))}
+function openQ(i){
+ act=i;rem=S.set.timer;const q=Q[i],a=$("qa");a.innerHTML="";
+ $("ql2").textContent="● "+q.level.toUpperCase();$("ql2").style.color=q.level=="Easy"?"#60f5a4":q.level=="Medium"?"#ffd54a":"#ff587d";
+ $("qh2").textContent="CHALLENGE #"+String(i+1).padStart(2,"0");$("qp").textContent=q.prompt+(cx(i)?"\n\nPilih SEMUA pernyataan yang benar (boleh lebih dari satu).":"");
+ if(q.img){const img=document.createElement("img");img.src=q.img;img.style.cssText="max-width:100%;max-height:200px;border-radius:8px;margin:12px 0;border:1px solid var(--l)";a.appendChild(img)}
+ if(q.level=="Easy"){opts=choices(i).sort(()=>Math.random()-.5);opts.forEach((o,n)=>{const l=document.createElement("label");l.className="ch";l.innerHTML=`<input type="radio" name="c" value="${o.k}" required>${String.fromCharCode(65+n)}. ${esc(o.txt)}`;a.appendChild(l)})}
+ else if(q.level=="Medium"){a.innerHTML+=`<label>Jawaban (angka saja)</label><input id="ax" required inputmode="decimal"><p style="font-size:.8rem;color:#9fb3d1">Boleh desimal (3,5) atau pecahan (7/2)</p>`}
+ else if(cx(i))stmts(i).forEach((s,n)=>{const l=document.createElement("label");l.className="ch";l.dataset.b=s.b;l.innerHTML=`<input type="checkbox">${String.fromCharCode(65+n)}. ${esc(s.t)}`;a.appendChild(l)});
+ else stmts(i).forEach((s,n)=>{const d=document.createElement("div");d.className="st";d.dataset.b=s.b;d.innerHTML=`<span><b>${String.fromCharCode(65+n)}.</b> ${esc(s.t)}</span><span class="o"><label><input type="radio" name="s${n}" value="true" required>Benar</label><label><input type="radio" name="s${n}" value="false">Salah</label></span>`;a.appendChild(d)});
+ Sh("mq");tick();tid=setInterval(tick,1000)}
+function tick(){const m=Math.floor(Math.max(rem,0)/60),s=Math.max(rem,0)%60;$("tm2").textContent=`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+ if(rem<=0){clearInterval(tid);closeQ();result(false,"WAKTU HABIS!")}rem--}
+function closeQ(){clearInterval(tid);H("mq")}
+$("fa").addEventListener("submit",e=>{e.preventDefault();clearInterval(tid);const q=Q[act];let ok=false;
+ if(q.level=="Medium")ok=Math.abs(num($("ax").value)-q.x)<.01;
+ else if(cx(act))ok=[...document.querySelectorAll("#qa .ch")].every(l=>l.querySelector("input").checked===(l.dataset.b==="true"));
+ else if(q.level=="Hard")ok=[...document.querySelectorAll("#qa .st")].every(r=>{const c=r.querySelector("input:checked");return c&&c.value===r.dataset.b});
+ else{const c=document.querySelector('input[name="c"]:checked');ok=c&&+c.value===cIdx(act)}
+ closeQ();pts=S.set[q.level];result(ok,ok?"BENAR!":"BELUM TEPAT")});
+function result(ok,t){const q=Q[act];$("ri").textContent=ok?"🎉":"❌";$("rt").textContent=t;$("rt").className=ok?"ok":"bad";$("rp").textContent=ok?`+${pts} POIN`:"0 POIN";
+ $("rx").textContent="";$("rb").onclick=()=>{H("mr");if(ok)pickTeam()};Sh("mr")}
+function pickTeam(){$("tch").innerHTML=S.teams.map((t,i)=>`<button class="tc" style="background:${t.color}" onclick="capture(${i})">${esc(t.name)}</button>`).join("");Sh("mt")}
+function capture(i){const t=S.teams[i];t.combo++;S.teams.forEach((x,j)=>{if(j!=i)x.combo=0});
+ t.points+=pts+(t.combo>=3?100:t.combo==2?50:0);t.captured++;S.cap[act]=i;H("mt");save();render();confetti();if(S.cap.every(x=>x!==null))endGame()}
+function confetti(){const c=$("cf");["#35e6ff","#ffd54a","#ef476f","#20bd82","#9b65ec"].forEach(k=>{for(let n=0;n<8;n++){const e=document.createElement("i");e.style.cssText=`left:${Math.random()*100}%;background:${k};animation-delay:${Math.random()*.4}s`;c.appendChild(e);setTimeout(()=>e.remove(),3200)}})}
+function endGame(){const r=sorted();$("cn").textContent="👑 "+r[0].name;$("cn").style.color=r[0].color;$("cs").textContent=`${r[0].points} POIN • ${r[0].captured} KOTAK`;
+ $("pod").innerHTML=r.slice(0,3).map((t,i)=>`<div class="p"><div style="font-size:1.6rem">${["🥇","🥈","🥉"][i]}</div><b style="color:${t.color}">${esc(t.name)}</b><div class="mono">${t.points} PTS</div></div>`).join("");V("final");confetti()}
+function resetGame(){clearInterval(tid);const s=S.set,n=S.teams.map(t=>({name:t.name,color:t.color,points:0,captured:0,combo:0}));S={teams:n,cap:Array(50).fill(null),set:s};save();render();$("tm").textContent="Game direset."}
+function cards(key){
+ const L=String.fromCharCode;
+ return Q.map((q,i)=>{let b="";const hd=`<h4><b>KARTU SOAL #${String(i+1).padStart(2,"0")}</b><span>${q.level}${cx(i)?" • Pilihan Ganda Kompleks":""}</span></h4>`;
+  const pr=esc(q.prompt).replace(/\n/g,"<br>")+(cx(i)?"<br><i>Pilih SEMUA yang benar.</i>":"");
+  if(q.level=="Easy"){const r=i%4,c0=choices(i),c=c0.slice(r).concat(c0.slice(0,r)),pp=c.findIndex(o=>o.k===cIdx(i)),kl=L(65+pp);b="<ol>"+c.map((o,n)=>`<li>${L(65+n)}. ${esc(o.txt)}</li>`).join("")+"</ol>";if(key)b=`<div class="ln"><b>Kunci: ${kl}</b></div>`}
+  else if(q.level=="Medium")b=key?`<div class="ln"><b>Jawaban: ${fmt(q.x)}</b></div>`:`<div class="ln">Jawaban: ____________</div>`;
+  else{const st=stmts(i);b="<ol>"+st.map((s,n)=>`<li>${cx(i)?"☐":"(B / S)"} ${L(65+n)}. ${esc(s.t)}${key?` <b>→ ${cx(i)?(s.b?"BENAR":"salah"):(s.b?"B":"S")}</b>`:""}</li>`).join("")+"</ol>"}
+  return `<article class="pc">${hd}<div>${pr}</div>${b}</article>`}).join("")}
+function pageHtml(key){return `<h2 style="font-family:Arial;color:#07152f">MATHEMATICS OF CHAMPION — ${key?"Kunci Jawaban":"Kartu Soal Bangun Ruang"}</h2><div class="pg">${cards(key)}</div>`}
+function doPrint(k){$("pv").innerHTML=`<div class="bar2 nop"><span>Pratinjau ${k?"kunci jawaban":"kartu soal"} — tekan <b>Ctrl+P</b> (⌘P di Mac) untuk mencetak.</span><button class="pr" onclick="try{window.print()}catch(e){this.textContent='Gunakan Ctrl+P'}">CETAK</button><button onclick="doDl()">UNDUH</button><button onclick="$('pv').classList.remove('show')">TUTUP</button><b id="pt" style="color:#ffd54a"></b></div>`+pageHtml(k);$("pv").classList.add("show");$("pv").scrollTop=0}
+async function doDl(){const d=window.claude?await claude.use("downloads"):null;if(!d){say("Unduhan tidak tersedia di tampilan ini.");return}
+ const css=document.querySelector("style").textContent.split("@media print")[0];
+ const data=`<!doctype html><meta charset=utf-8><title>Kartu Soal</title><style>${css}body{background:#fff;color:#000}.pv,.bar2{display:none}</style><body>${pageHtml(0)}<div style="page-break-before:always"></div>${pageHtml(1)}`;
+ for(const fn of["kartu-soal-bangun-ruang.html","kartu-soal-bangun-ruang.doc","kartu-soal-bangun-ruang.txt"]){
+  try{await d.save({filename:fn,data:fn.endsWith(".txt")?txt():data});say("File tersimpan: "+fn);return}catch(e){if(e&&e.code=="declined")return}}
+ say("Unduhan gagal. Gunakan Ctrl+P pada pratinjau.")}
+function say(m){const e=$('pt');if(e)e.textContent=m;$('tm').textContent=m}
+function exportData(){const data={state:S,questions:Q.map(q=>({level:q.level,prompt:q.prompt,x:q.x,y:q.y,st:q.st,ch:q.ch}))};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='mathematics-of-champion-backup.json';a.click();URL.revokeObjectURL(url);say("Data berhasil di-export!")}
+function toggleSolution(btn){const sol=btn.nextElementSibling;sol.classList.toggle('hide');sol.classList.toggle('show');btn.textContent=sol.classList.contains('hide')?'Lihat Solusi':'Sembunyikan Solusi'}
+function importData(input){const file=input.files[0];if(!file)return;const reader=new FileReader();reader.onload=e=>{try{const data=JSON.parse(e.target.result);if(data.state&&data.questions){S=data.state;data.questions.forEach((v,i)=>{if(Q[i]){Q[i].level=v.level||Q[i].level;Q[i].prompt=v.prompt||Q[i].prompt;Q[i].x=+v.x;Q[i].y=+v.y;Q[i].st=v.st||"";Q[i].ch=v.ch||"";saved.add(i)}});save();render();renderT();say("Data berhasil di-import!")}else{say("Format file tidak valid.")}}catch(err){say("Gagal membaca file. Pastikan format JSON benar.")}};reader.readAsText(file);input.value=""}
+function txt(){return Q.map((q,i)=>`#${i+1} [${q.level}]\n${q.prompt}\nKunci: ${q.level=="Medium"?fmt(q.x):"(lihat kartu kunci)"}\n`).join("\n")}
+function askPin(){$("pin").value="";$("pm").textContent="";Sh("mpin");$("pin").focus()}
+$("fp").addEventListener("submit",e=>{e.preventDefault();if($("pin").value==="2771"){H("mpin");V("teacher")}else{$("pm").textContent="Sandi salah.";$("pin").value=""}});
+function renderT(){dbStatus();$("s-t").value=S.set.timer;["E","M","H"].forEach(k=>$("s-"+k).value=S.set[LV[k]]);
+ $("qs").innerHTML=Q.map((q,i)=>`<option value="${i}">#${i+1} — ${q.level}</option>`).join("");loadQ();
+ $("te").innerHTML=S.teams.map((t,i)=>`<div><input class="tn" data-i="${i}" value="${esc(t.name)}"><input class="tk" data-i="${i}" type="color" value="${t.color}"></div>`).join("")}
+let saved=new Set();
+function dbStatus(){const e=$("dbs");if(!e)return;
+  if(db)e.textContent=`DATABASE TERHUBUNG • ${saved.size}/50 SOAL TERSIMPAN`;
+  else if(localDB)e.textContent=`LOCALSTORAGE AKTIF • ${saved.size}/50 SOAL TERSIMPAN`;
+  else e.textContent="DATABASE TIDAK AKTIF • MODE LOKAL (SOAL TIDAK TERSIMPAN)";
+  e.style.color=(db||localDB)?"#6ef0b0":"#ff7d9a"}
+async function saveAll(){const m=$("tm");
+  if(db){try{for(let i=0;i<50;i++){const q=Q[i];m.textContent=`Menyimpan soal ${i+1}/50...`;await db.doc("questions/q"+i).set({level:q.level,prompt:q.prompt,x:q.x,y:q.y,st:q.st,ch:q.ch,img:q.img||""})}m.textContent="Semua 50 soal tersimpan di database."}catch(er){m.textContent="Gagal menyimpan ("+(er&&er.code||"error")+"). Akun ini mungkin tidak punya izin menulis."}}
+  else if(localDB){try{const qData={version:VERSION,questions:Q.map(q=>({level:q.level,prompt:q.prompt,x:q.x,y:q.y,st:q.st,ch:q.ch,img:q.img||""}))};localStorage.setItem("moc_questions",JSON.stringify(qData));m.textContent="Semua 50 soal tersimpan di localStorage."}catch(e){m.textContent="Gagal menyimpan ke localStorage."}}
+  else{m.textContent="Database tidak aktif. Buka halaman dari akun yang login atau aktifkan localStorage."}}
+const ROWS=5;
+function kindOf(i){const q=Q[i];return cx(i)?"cx":q.level=="Easy"?"pg":q.level=="Medium"?"is":"bs"}
+function loadQ(){const i=+$("qs").value,q=Q[i],k=kindOf(i);
+ $("qk").textContent="Tipe: "+{pg:"Pilihan ganda",is:"Isian angka",bs:"Pilihan benar/salah",cx:"Pilihan ganda kompleks"}[k]+" • "+q.level;
+ $("qt").value=q.prompt;$("qx").value=fmt(q.x);$("qy").value=fmt(q.y);
+ $("qimg").value="";
+ $("imgPreview").innerHTML=q.img?`<img src="${q.img}" style="max-width:200px;border-radius:8px;border:1px solid var(--l)"><button type="button" onclick="removeImage(${i})" style="margin-left:8px;padding:4px 8px;font-size:0.8rem">Hapus</button>`:"";
+ $("ed-pg").classList.toggle("hide",k!="pg");$("ed-st").classList.toggle("hide",k!="bs"&&k!="cx");$("ed-xy").classList.toggle("hide",k!="is");
+ if(k=="pg"){const c=choices(i),ck=cIdx(i);$("ed-pg").innerHTML="<label>Pilihan jawaban — tandai satu yang benar</label>"+c.map((o,n)=>`<div class="er"><input type="radio" name="ek" value="${n}" ${n==ck?"checked":""}><b>${String.fromCharCode(65+n)}.</b><input class="ec" type="text" value="${esc(o.txt)}"></div>`).join("")}
+ if(k=="bs"||k=="cx"){const st=stmts(i);let h=`<label>${k=="cx"?"Opsi — centang semua opsi yang BENAR (boleh lebih dari satu)":"Pernyataan — centang jika pernyataan BENAR, kosongkan jika SALAH"} (baris kosong diabaikan)</label>`;
+  for(let n=0;n<ROWS;n++){const s=st[n];h+=`<div class="er"><b>${String.fromCharCode(65+n)}.</b><input class="es" type="text" value="${s?esc(s.t):""}"><label class="eb"><input class="ebk" type="checkbox" ${s&&s.b?"checked":""}> ${k=="cx"?"Benar":"B"}</label></div>`}
+  $("ed-st").innerHTML=h}}
+function removeImage(i){Q[i].img="";loadQ();save()}
+$("qimg").addEventListener("change",function(e){const file=e.target.files[0];if(!file)return;if(file.size>500000){$("tm").textContent="Ukuran gambar terlalu besar (maks 500KB).";this.value="";return}const reader=new FileReader();reader.onload=ev=>{const i=+$("qs").value;Q[i].img=ev.target.result;loadQ();save()};reader.readAsDataURL(file)});
+$("qs").addEventListener("change",loadQ);$("fs").addEventListener("submit",e=>{e.preventDefault();S.set={timer:+$("s-t").value||60,Easy:+$("s-E").value,Medium:+$("s-M").value,Hard:+$("s-H").value};save();$("tm").textContent="Pengaturan disimpan."});
+$("fq").addEventListener("submit",async e=>{e.preventDefault();const i=+$("qs").value,q=Q[i],k=kindOf(i),m=$("tm");
+ const pr=$("qt").value.trim();if(!pr){m.textContent="Teks soal tidak boleh kosong.";return}
+ let ch=q.ch,st=q.st,x=q.x,y=q.y;
+ if(k=="is"){x=num($("qx").value);y=num($("qy").value);if(isNaN(x)||isNaN(y)){m.textContent="Jawaban x dan y harus berupa angka.";return}}
+ if(k=="pg"){const o=[...document.querySelectorAll(".ec")].map(e=>e.value.trim());if(o.some(t=>!t)){m.textContent="Isi keempat pilihan jawaban.";return}
+  const r=document.querySelector('input[name="ek"]:checked');ch=JSON.stringify({o,c:r?+r.value:0})}
+ if(k=="bs"||k=="cx"){const t=[...document.querySelectorAll(".es")],b=[...document.querySelectorAll(".ebk")];
+  const L=t.map((e,n)=>({t:e.value.trim(),b:b[n].checked})).filter(r=>r.t);
+  if(L.length<2){m.textContent="Isi minimal 2 pernyataan.";return}
+  if(k=="cx"&&!L.some(r=>r.b)){m.textContent="Centang minimal satu opsi yang benar.";return}
+  st=JSON.stringify(L)}
+ q.prompt=pr;q.x=x;q.y=y;q.ch=ch||"";q.st=st||"";
+ if(db){try{await db.doc("questions/q"+i).set({level:q.level,prompt:q.prompt,x:q.x,y:q.y,st:q.st,ch:q.ch,img:q.img||""});m.textContent=`Soal #${i+1} tersimpan di database.`}catch(er){m.textContent="Gagal menyimpan soal ke database."}}
+ else if(localDB){try{const qData={version:VERSION,questions:Q.map(q=>({level:q.level,prompt:q.prompt,x:q.x,y:q.y,st:q.st,ch:q.ch,img:q.img||""}))};localStorage.setItem("moc_questions",JSON.stringify(qData));m.textContent=`Soal #${i+1} tersimpan di localStorage.`}catch(e){m.textContent="Gagal menyimpan ke localStorage."}}
+ else m.textContent="Mode lokal: soal hanya berubah di sesi ini.";render()});
+$("te").addEventListener("change",e=>{const i=e.target.dataset.i;if(i===undefined)return;S.teams[i][e.target.classList.contains("tn")?"name":"color"]=e.target.value;save();render()});
+render();
+loadState();
+(async()=>{
+ try{
+  const savedQuestions=localStorage.getItem("moc_questions");
+  if(savedQuestions){try{const qData=JSON.parse(savedQuestions);if(qData.version===VERSION){qData.questions.forEach((v,i)=>{if(Q[i]){Q[i].level=v.level||Q[i].level;Q[i].prompt=v.prompt||Q[i].prompt;Q[i].x=+v.x;Q[i].y=+v.y;Q[i].st=v.st||"";Q[i].ch=v.ch||"";Q[i].img=v.img||"";saved.add(i)}})}else{localStorage.removeItem("moc_questions")}}catch(e){}}
+  localDB=true;
+  $("note").textContent="✓ LocalStorage aktif: soal dan progress otomatis tersimpan di browser.";
+  dbStatus();
+ }catch(e){
+  localDB=true;
+  $("note").textContent="✓ LocalStorage aktif: soal dan progress otomatis tersimpan di browser.";
+  dbStatus();
+ }
+ db=window.claude?await claude.use("db"):null;
+ if(db){
+  dbStatus();
+  db.doc("game/state").onSnapshot(s=>{if(s.exists){try{const d=JSON.parse(s.data().json);if(d&&d.teams)S=d}catch(e){}}render();if(!$("v-teacher").classList.contains("hide")&&document.activeElement.tagName=="BODY")renderT()},()=>{});
+  db.collection("questions").onSnapshot(s=>{s.docs.forEach(d=>{const i=+d.id.slice(1),v=d.data(),q=Q[i];if(!q||!v)return;q.level=v.level||q.level;q.prompt=v.prompt||q.prompt;q.x=+v.x;q.y=+v.y;q.st=v.st||"";q.ch=v.ch||"";q.img=v.img||""});saved=new Set(s.docs.map(d=>+d.id.slice(1)));dbStatus();render()},er=>say("Gagal membaca soal dari database."));
+ }
+})();
+</script></body></html>
