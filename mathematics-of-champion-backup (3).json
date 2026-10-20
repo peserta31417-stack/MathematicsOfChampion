@@ -1,0 +1,522 @@
+{
+  "state": {
+    "teams": [
+      {
+        "name": "RED",
+        "color": "#ef476f",
+        "points": 0,
+        "captured": 0,
+        "combo": 0
+      },
+      {
+        "name": "BLUE",
+        "color": "#3287ff",
+        "points": 0,
+        "captured": 0,
+        "combo": 0
+      },
+      {
+        "name": "GREEN",
+        "color": "#20bd82",
+        "points": 0,
+        "captured": 0,
+        "combo": 0
+      },
+      {
+        "name": "YELLOW",
+        "color": "#e5b731",
+        "points": 0,
+        "captured": 0,
+        "combo": 0
+      },
+      {
+        "name": "PURPLE",
+        "color": "#9b65ec",
+        "points": 0,
+        "captured": 0,
+        "combo": 0
+      },
+      {
+        "name": "ORANGE",
+        "color": "#f58b36",
+        "points": 0,
+        "captured": 0,
+        "combo": 0
+      },
+      {
+        "name": "PINK",
+        "color": "#ec5eb5",
+        "points": 0,
+        "captured": 0,
+        "combo": 0
+      },
+      {
+        "name": "CYAN",
+        "color": "#21c7d5",
+        "points": 0,
+        "captured": 0,
+        "combo": 0
+      }
+    ],
+    "cap": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "set": {
+      "timer": 60,
+      "Easy": 100,
+      "Medium": 150,
+      "Hard": 200
+    }
+  },
+  "questions": [
+    {
+      "level": "Easy",
+      "prompt": "Manakah yang termasuk bangun ruang sisi lengkung?",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"Tabung\",\"Kubus\",\"Prisma segitiga\",\"Limas segiempat\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Banyak sisi, rusuk, dan titik sudut balok berturut-turut adalah...",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"6, 12, 8\",\"6, 8, 12\",\"8, 12, 6\",\"4, 12, 8\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Bangun ruang yang memiliki 5 sisi, 8 rusuk, dan 5 titik sudut adalah...",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"Limas segiempat\",\"Prisma segitiga\",\"Kerucut\",\"Balok\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Jaring-jaring kubus terdiri atas ... persegi yang kongruen.",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"6\",\"4\",\"8\",\"12\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Jaring-jaring tabung terdiri atas...",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"2 lingkaran dan 1 persegi panjang\",\"1 lingkaran dan 1 persegi panjang\",\"2 lingkaran dan 1 juring\",\"1 lingkaran dan 1 juring\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Jaring-jaring kerucut terdiri atas...",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"1 lingkaran dan 1 juring lingkaran\",\"2 lingkaran dan 1 juring\",\"1 lingkaran dan 1 persegi panjang\",\"1 lingkaran dan 1 segitiga\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Rumus luas permukaan kubus dengan panjang rusuk s adalah...",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"6s²\",\"4s²\",\"s³\",\"12s\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Luas permukaan kubus dengan rusuk 5 cm adalah ... cm²",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"150\",\"125\",\"100\",\"30\"],\"c\":0}"
+    },
+    {
+      "level": "Medium",
+      "prompt": "Hitung luas permukaan kubus dengan panjang rusuk 9 cm. (jawab dalam cm²)",
+      "x": 486,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Hitung luas permukaan balok berukuran 10 cm × 6 cm × 5 cm. (cm²)",
+      "x": 280,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Alas prisma berbentuk segitiga siku-siku dengan sisi 6 cm, 8 cm, dan 10 cm. Tinggi prisma 12 cm. Hitung luas permukaannya. (cm²)",
+      "x": 336,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Limas persegi memiliki sisi alas 10 cm dan tinggi sisi tegak 13 cm. Hitung luas permukaannya. (cm²)",
+      "x": 360,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Tabung berjari-jari 7 cm dan tinggi 10 cm. Hitung luas permukaannya. (π = 22/7, cm²)",
+      "x": 748,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Kerucut berjari-jari 7 cm dan garis pelukis 25 cm. Hitung luas permukaannya. (π = 22/7, cm²)",
+      "x": 704,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Bola berjari-jari 14 cm. Hitung luas permukaannya. (π = 22/7, cm²)",
+      "x": 2464,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Luas permukaan sebuah kubus 216 cm². Berapa panjang rusuknya? (cm)",
+      "x": 6,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Balok memiliki panjang 8 cm, lebar 5 cm, dan luas permukaan 236 cm². Berapa tinggi balok? (cm)",
+      "x": 6,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Tentukan benar atau salah pernyataan tentang kubus berikut.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Kubus memiliki 12 rusuk\",\"b\":true},{\"t\":\"Setiap sisi kubus berbentuk persegi\",\"b\":true},{\"t\":\"Kubus memiliki 6 diagonal ruang\",\"b\":false},{\"t\":\"Kubus memiliki 12 diagonal sisi\",\"b\":true}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Tentukan benar atau salah pernyataan tentang balok berikut.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Balok memiliki 3 pasang sisi berhadapan yang kongruen\",\"b\":true},{\"t\":\"Balok memiliki 8 rusuk\",\"b\":false},{\"t\":\"Kubus merupakan balok khusus\",\"b\":true},{\"t\":\"Semua sisi balok pasti berbentuk persegi\",\"b\":false}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Tentukan benar atau salah pernyataan tentang klasifikasi bangun ruang berikut.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Tabung termasuk bangun ruang sisi lengkung\",\"b\":true},{\"t\":\"Limas memiliki sisi lengkung\",\"b\":false},{\"t\":\"Prisma termasuk bangun ruang sisi datar\",\"b\":true},{\"t\":\"Kerucut dan tabung sama-sama memiliki 2 lingkaran sebagai alas\",\"b\":false}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Tentukan benar atau salah pernyataan tentang prisma segilima berikut.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Prisma segilima memiliki 7 sisi\",\"b\":true},{\"t\":\"Prisma segilima memiliki 15 rusuk\",\"b\":true},{\"t\":\"Prisma segilima memiliki 10 titik sudut\",\"b\":true},{\"t\":\"Prisma segilima memiliki 6 sisi tegak\",\"b\":false}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Tentukan benar atau salah pernyataan tentang limas segitiga berikut.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Limas segitiga memiliki 5 titik sudut\",\"b\":false},{\"t\":\"Limas segitiga memiliki 4 sisi\",\"b\":true},{\"t\":\"Limas segitiga memiliki 6 rusuk\",\"b\":true},{\"t\":\"Semua sisi limas segitiga berbentuk segitiga\",\"b\":true}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Tentukan benar atau salah pernyataan tentang jaring-jaring berikut.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Jaring-jaring prisma segitiga terdiri atas 2 segitiga dan 3 persegi panjang\",\"b\":true},{\"t\":\"Jaring-jaring tabung terdiri atas 3 lingkaran\",\"b\":false},{\"t\":\"Jaring-jaring limas segiempat terdiri atas 1 segiempat dan 4 segitiga\",\"b\":true},{\"t\":\"Jaring-jaring balok terdiri atas 6 persegi/persegi panjang\",\"b\":true}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Tentukan benar atau salah pernyataan tentang luas permukaan berikut. (π = 22/7)",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Luas permukaan kubus rusuk 4 cm adalah 96 cm²\",\"b\":true},{\"t\":\"Luas permukaan balok 5 × 4 × 3 cm adalah 60 cm²\",\"b\":false},{\"t\":\"Luas permukaan bola berjari-jari 7 cm adalah 616 cm²\",\"b\":true},{\"t\":\"Luas alas tabung berjari-jari 7 cm adalah 308 cm²\",\"b\":false}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Tentukan benar atau salah pernyataan tentang luas permukaan berikut.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Jika rusuk kubus diperbesar 2 kali, luas permukaannya menjadi 2 kali semula\",\"b\":false},{\"t\":\"Jika rusuk kubus diperbesar 2 kali, luas permukaannya menjadi 4 kali semula\",\"b\":true},{\"t\":\"Luas permukaan tabung tanpa tutup = 2πr(r + t)\",\"b\":false},{\"t\":\"Luas permukaan limas = luas alas + jumlah luas sisi tegak\",\"b\":true}]",
+      "ch": ""
+    },
+    {
+      "level": "Easy",
+      "prompt": "Prisma yang alasnya segi enam memiliki ... sisi.",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"8\",\"6\",\"7\",\"12\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Limas dengan alas segi enam memiliki ... rusuk.",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"12\",\"7\",\"6\",\"18\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Luas permukaan balok berukuran 6 cm × 4 cm × 3 cm adalah ... cm²",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"108\",\"72\",\"144\",\"54\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Rumus luas selimut tabung dengan jari-jari r dan tinggi t adalah...",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"2πrt\",\"πr²t\",\"πrt\",\"2πr²\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Rumus luas permukaan bola dengan jari-jari r adalah...",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"4πr²\",\"2πr²\",\"πr²\",\"4/3 πr³\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Kerucut berjari-jari r dan garis pelukis s memiliki luas selimut...",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"πrs\",\"2πrs\",\"πr²s\",\"πr²\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Kotak berbentuk balok tanpa tutup. Luas bahan yang dibutuhkan adalah...",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"2(pl + pt + lt) − pl\",\"2(pl + pt + lt)\",\"pl + pt + lt\",\"2pl + pt + lt\"],\"c\":0}"
+    },
+    {
+      "level": "Easy",
+      "prompt": "Banyak bentuk jaring-jaring kubus yang berbeda adalah...",
+      "x": 0,
+      "y": 0,
+      "st": "",
+      "ch": "{\"o\":[\"11\",\"6\",\"8\",\"12\"],\"c\":0}"
+    },
+    {
+      "level": "Medium",
+      "prompt": "Hitung luas permukaan kubus dengan rusuk 12 cm. (cm²)",
+      "x": 864,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Hitung luas permukaan balok berukuran 15 cm × 8 cm × 4 cm. (cm²)",
+      "x": 424,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Alas prisma berbentuk segitiga siku-siku dengan sisi 5 cm, 12 cm, dan 13 cm. Tinggi prisma 10 cm. Hitung luas permukaannya. (cm²)",
+      "x": 360,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Limas persegi memiliki sisi alas 6 cm dan tinggi sisi tegak 5 cm. Hitung luas permukaannya. (cm²)",
+      "x": 96,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Tabung tanpa tutup berjari-jari 7 cm dan tinggi 20 cm. Hitung luas permukaannya. (π = 22/7, cm²)",
+      "x": 1034,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Kerucut berjari-jari 7 cm dan garis pelukis 10 cm. Hitung luas selimutnya. (π = 22/7, cm²)",
+      "x": 220,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Luas permukaan sebuah bola 616 cm². Berapa jari-jarinya? (π = 22/7, cm)",
+      "x": 7,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Kerucut berjari-jari 7 cm dan tinggi 24 cm. Hitung luas selimutnya. (π = 22/7, cm²)",
+      "x": 550,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Medium",
+      "prompt": "Akuarium kaca berbentuk balok tanpa tutup berukuran 80 cm × 40 cm × 50 cm. Hitung luas kaca yang dibutuhkan. (cm²)",
+      "x": 15200,
+      "y": 0,
+      "st": "",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Pilih bangun ruang yang memiliki sisi lengkung.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Tabung\",\"b\":true},{\"t\":\"Kerucut\",\"b\":true},{\"t\":\"Bola\",\"b\":true},{\"t\":\"Limas segiempat\",\"b\":false}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Pilih bangun ruang yang memiliki 12 rusuk.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Kubus\",\"b\":true},{\"t\":\"Balok\",\"b\":true},{\"t\":\"Limas segienam\",\"b\":true},{\"t\":\"Prisma segitiga\",\"b\":false}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Pilih pernyataan yang benar tentang jaring-jaring.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Satu bangun ruang dapat memiliki lebih dari satu bentuk jaring-jaring\",\"b\":true},{\"t\":\"Selimut tabung pada jaring-jaringnya berbentuk persegi panjang\",\"b\":true},{\"t\":\"Jaring-jaring limas segitiga terdiri atas 4 segitiga\",\"b\":true},{\"t\":\"Jaring-jaring kerucut memiliki 2 lingkaran\",\"b\":false}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Pilih pernyataan luas permukaan yang benar. (π = 22/7)",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Kubus rusuk 5 cm: 150 cm²\",\"b\":true},{\"t\":\"Kubus rusuk 6 cm: 196 cm²\",\"b\":false},{\"t\":\"Balok 3 × 4 × 5 cm: 94 cm²\",\"b\":true},{\"t\":\"Tabung r = 7 cm, t = 3 cm: 400 cm²\",\"b\":false}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Limas persegi memiliki sisi alas 8 cm dan tinggi sisi tegak 5 cm. Pilih pernyataan yang benar.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Luas alas 64 cm²\",\"b\":true},{\"t\":\"Luas satu sisi tegak 40 cm²\",\"b\":false},{\"t\":\"Luas seluruh sisi tegak 80 cm²\",\"b\":true},{\"t\":\"Luas permukaan 144 cm²\",\"b\":true}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Prisma tegak dengan alas segitiga siku-siku 3 cm, 4 cm, 5 cm dan tinggi 10 cm. Pilih pernyataan yang benar.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Luas alas 6 cm²\",\"b\":true},{\"t\":\"Keliling alas 12 cm\",\"b\":true},{\"t\":\"Luas seluruh sisi tegak 120 cm²\",\"b\":true},{\"t\":\"Luas permukaan 126 cm²\",\"b\":false}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Pilih pernyataan yang benar. (π = 22/7)",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Luas permukaan bola r = 7 cm adalah 616 cm²\",\"b\":true},{\"t\":\"Luas selimut tabung r = 7 cm, t = 10 cm adalah 440 cm²\",\"b\":true},{\"t\":\"Luas alas tabung r = 7 cm adalah 308 cm²\",\"b\":false},{\"t\":\"Luas selimut kerucut r = 7 cm, s = 25 cm adalah 550 cm²\",\"b\":true}]",
+      "ch": ""
+    },
+    {
+      "level": "Hard",
+      "prompt": "Luas permukaan sebuah kubus 384 cm². Pilih pernyataan yang benar.",
+      "x": 0,
+      "y": 0,
+      "st": "[{\"t\":\"Luas satu sisinya 64 cm²\",\"b\":true},{\"t\":\"Panjang rusuknya 8 cm\",\"b\":true},{\"t\":\"Jika rusuk digandakan, luas permukaan menjadi 768 cm²\",\"b\":false},{\"t\":\"Jumlah panjang seluruh rusuknya 96 cm\",\"b\":true}]",
+      "ch": ""
+    }
+  ]
+}
